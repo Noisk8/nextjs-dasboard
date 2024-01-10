@@ -41,7 +41,7 @@ export const PokemonCrad = ({pokemon}:Props) => {
           </div>
         </div>
         <div className="border-b">
-          <Link href="/dashboard/main"  className="px-4 py-2 hover:bg-gray-100 flex items-center">
+          <Link href={`/dashboard/pokemon/${id}`} className="px-4 py-2 hover:bg-gray-100 flex items-center">
         
               <div className="text-red-600">
                 <IoHeartOutline />
@@ -54,7 +54,7 @@ export const PokemonCrad = ({pokemon}:Props) => {
               </div>
             
           </Link>
-          <Link href="/dashboard/main" className="px-4 py-2 hover:bg-gray-100 flex">
+          <Link href={`/dashboard/pokemon/${id}`}  className="px-4 py-2 hover:bg-gray-100 flex">
             
              
            
