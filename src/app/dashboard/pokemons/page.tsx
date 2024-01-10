@@ -12,6 +12,7 @@ const getPokemons = async (limit = 20, offset = 0):Promise <SimplePokemon []> =>
 
   }))
 
+//   throw new Error('');
   return pokemons;
 }
 
