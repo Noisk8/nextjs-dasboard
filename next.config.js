@@ -7,6 +7,11 @@ const nextConfig = {
             protocol:'https',
             hostname:'images.unplash.com'
         },
+        {
+
+            protocol: 'https',
+            hostname:'raw.githubusercontent.com'
+        }
     ]
     
     }
