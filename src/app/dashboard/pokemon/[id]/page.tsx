@@ -3,6 +3,7 @@ import { Pokemon } from "@/pokemons";
 import { Metadata } from "next";
 
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 interface Props{
   params:{
@@ -12,21 +13,46 @@ interface Props{
 
 export  async function generateMetadata ({ params }: Props): Promise<Metadata>{
 
-  const {id, name } = await getPokemon(params.id);
+
+  try {
+
+    const {id, name } = await getPokemon(params.id);
 
 
+    return{
+      title:`${id} - Pokedex`,
+      description:`Pagina de ${name} `,
+    }
+  } catch(error){
 return{
-  title:`${id} - Pokedex`,
-  description:`Pagina de ${name} `,
+
+  title:'esto que monda',
+  description:'esto que voleta'
 }
+
+  }
+
 }
+
+
 
 const getPokemon = async (id: string): Promise <Pokemon> => {
-  const pokemon = await fetch (`https://pokeapi.co/api/v2/pokemon/${ id }`,{
-    cache: 'force-cache'
-  }).then (resp => resp.json());
+  try{
 
-  return pokemon;
+    const pokemon = await fetch (`https://pokeapi.co/api/v2/pokemon/${ id }`,{
+      cache: 'force-cache'
+    }).then (resp => resp.json());
+  
+    return pokemon;
+  }
+  
+  catch(error){
+    notFound();
+  
+  }
+  
+
+ 
 }
 
 
@@ -97,6 +123,7 @@ export default async function PokemonPage({params}: Props){
                 width={100}
                 height={100}
                 alt={`sprite ${pokemon.name}`}
+                
               />
 
             </div>

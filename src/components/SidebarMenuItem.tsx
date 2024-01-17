@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from "react";
 import Link from "next/link";
@@ -17,7 +17,7 @@ export const SidebarMenuItem = ({ title, path, icon, subTitle }: Props) => {
   return (
     <Link
       href={path}
-      className={` w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3       hover:bg-white/5 transition ease-linear duration-150
+      className={` w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-teal-500 transition ease-linear duration-150
     ${currentPath === path ? "bg-teal-700" : ""}
     `}
     >
