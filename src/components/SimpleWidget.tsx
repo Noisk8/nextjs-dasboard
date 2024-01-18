@@ -1,5 +1,6 @@
 import { IoCafeOutline } from "react-icons/io5"
 import Link from "next/link"
+import { FcBiohazard } from "react-icons/fc";
 
 export const SimpleWidget = () => {
   return (
@@ -12,7 +13,7 @@ export const SimpleWidget = () => {
           <div className="flex flex-row items-center justify-center space-x-1 ">
             <div id="icon">
              
-              <IoCafeOutline size={50}  className="text-teal-500" /> 
+            <FcBiohazard size={80}   />  
             </div>
             <div id="temp" className="text-center">
               <h4 className="text-4xl">Titulo</h4>

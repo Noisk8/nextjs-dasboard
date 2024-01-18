@@ -17,7 +17,7 @@ export default async function FavoritesPage() {
 
   return <div className="flex flex-col"  >
 
-    <span className="text-5xl mr-2 ">Pokemones favoritos <small>Global state</small></span>
+    <span className="text-5xl mr-2 text-center p-8 ">Pokemones favoritos <small>Global state</small></span>
 
   <PokemonGrid pokemons={[]} />
   </div>
