@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { IoBrowsersOutline, IoCalculator, IoLogoReact } from "react-icons/io5";
 import { GiSkateboard } from "react-icons/gi";
@@ -25,6 +26,12 @@ const menuItems = [
     title: "Pokemons",
     subTitle: "pokemones",
   },
+  {
+    path: "/dashboard/favorites",
+    icon: <IoCalculator size={40} />,
+    title: "Favoritos",
+    subTitle: "pokemones",
+  },
 ];
 
 export const Sidebar = () => {
@@ -44,7 +51,7 @@ export const Sidebar = () => {
         </p>
       </div>
       <div id="profile" className="px-6 py-10">
-        <a href="#" className="inline-flex space-x-2 items-center">
+        <Link href="#" className="inline-flex space-x-2 items-center">
           <span>
             <Image
               className="rounded-full w-8 h-8"
@@ -55,7 +62,7 @@ export const Sidebar = () => {
             />
           </span>
           <span className="text-sm md:text-base font-bold">Noisk8</span>
-        </a>
+        </Link>
       </div>
 
       <div id="nav" className="w-full px-6">
