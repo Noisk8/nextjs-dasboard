@@ -7,7 +7,8 @@ import { SimplePokemon } from "../interfaces/simple-pokemon";
 import Image from "next/image";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
 
-import {   useAppSelector } from "@/store";
+import {   useAppDispatch, useAppSelector } from "@/store";
+import { toggleFavorite } from "@/store/pokemons/pokemons";
 
 
 interface Props{
@@ -21,7 +22,14 @@ export const PokemonCrad = ({pokemon}:Props) => {
     const { id, name} = pokemon;
 
 const isFavorite = useAppSelector (state => !!state.pokemons[id]);
+
+const dispatch = useAppDispatch ();
     
+const onToggle =()=>{
+  dispatch(toggleFavorite(pokemon))
+
+
+}
   return (
     <div className="mx-auto right-0 mt-2 w-60">
       <div className="bg-white rounded overflow-hidden shadow-lg">
@@ -47,7 +55,8 @@ const isFavorite = useAppSelector (state => !!state.pokemons[id]);
           </div>
         </div>
         <div className="border-b">
-          <Link href={`/dashboard/pokemon/${name}`} className="px-4 py-2 hover:bg-gray-100 flex items-center">
+          <div onClick={ onToggle}
+          className="px-4 py-2 hover:bg-gray-100 flex items-center cursor-pointer">
         
               <div className="text-red-600">
 
@@ -70,7 +79,7 @@ const isFavorite = useAppSelector (state => !!state.pokemons[id]);
                 <p className="text-xs text-gray-500">MERA VUELTA PAI</p>
               </div>
             
-          </Link>
+          </div>
           <Link href={`/dashboard/pokemon/${id}`}  className="px-4 py-2 hover:bg-gray-100 flex">
             
              
