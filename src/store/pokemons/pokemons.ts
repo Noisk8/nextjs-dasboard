@@ -1,15 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { SimplePokemon } from '@/pokemons';
 
-
-
 interface  pokemosState {
     [key: string] : SimplePokemon
 
 }
 
 const initialState: pokemosState = {
-
 
 '1':{id: '1', name: 'bulbasaur'},
 
