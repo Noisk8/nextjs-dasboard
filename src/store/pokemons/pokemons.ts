@@ -6,9 +6,16 @@ interface  pokemosState {
 
 }
 
-const initialState: pokemosState = {
+const getInitialState = ( ): pokemosState => {
+const favorites = JSON.parse( localStorage.getItem('favorite-pokemons') ??  '{}')
+  return favorites;
 
-'1':{id: '1', name: 'bulbasaur'},
+}
+
+const initialState: pokemosState =  {
+  ...getInitialState(),
+
+
 
 
 }
@@ -27,9 +34,12 @@ const {id} = pokemon;
 if (!!state[id]){
 
   delete state[id];
-  return;
+  // return;
+} else{
+  state[id] =pokemon;
 }
-state[id] =pokemon;
+
+localStorage.setItem('favorite-pokemons', JSON.stringify(state));
 }
 
   }

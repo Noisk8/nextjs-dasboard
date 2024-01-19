@@ -1,20 +1,24 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore,  } from '@reduxjs/toolkit';
 
 import counterReducer from './counter/CounterSlice';
-import pokemonsReducer from './pokemons/pokemons'
+import pokemonsReducer from './pokemons/pokemons';
 import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux'
+import { localStorageMiddleware } from './middlewares/localstorage-middleware';
 
 export const store = configureStore({
   reducer: {
-
-counter: counterReducer,
-pokemons:  pokemonsReducer,
-
-
-
-
-
+    counter: counterReducer,
+    pokemons:  pokemonsReducer,
   },
+
+  middleware: ( getDefaultMiddleware ) =>  
+  getDefaultMiddleware ({
+    
+    thunk: {
+      extraArgument:''
+    },
+    serializableCheck: false,
+  }),
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
