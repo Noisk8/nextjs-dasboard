@@ -1,4 +1,4 @@
-import { SimpleWidget } from "@/components";
+import { SimpleWidget, WidgetsGrid } from "@/components";
 
 
 
@@ -12,12 +12,10 @@ export default function MainPage() {
     <div className="text-black p-2 text-center">
       <h1 className="mt-2 text-3xl  p-4">Hello Page</h1>
       <span className="text-xl pb-4 ">Informacion general </span>
+<WidgetsGrid />
 
 
-
-      <div className="flex flex-wrap p-2 justify-center items-center">
-<SimpleWidget />
-      </div>
+   
     </div>
   );
 }

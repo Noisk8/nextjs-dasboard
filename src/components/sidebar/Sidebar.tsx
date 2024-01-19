@@ -3,9 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { FcCommandLine, FcLike, FcLinux , FcGlobe, FcDebian } from "react-icons/fc";
 
-
-
-import { GiSkateboard } from "react-icons/gi";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 
 const menuItems = [
