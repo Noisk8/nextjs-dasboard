@@ -16,7 +16,7 @@ const isCart = useAppSelector(state => state.counter.count);
      subTitle="Mera vuelta pai"
      title={ `${isCart}` }
      label="contador"
-href="/counter"
+href="/dashboard/counter"
 icon={<FcBiohazard size={70} />}
      />
     </div>
