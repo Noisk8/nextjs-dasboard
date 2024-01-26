@@ -43,7 +43,9 @@ const onToggle =()=>{
     width={100}
     height={100}
     alt={pokemon.name}
-    priority={ false }
+    priority={ true }
+    style={{ width: "auto", height: "auto" }} // Agregar este estilo
+         
         
         /> 
           <p className="pt-2 text-lg font-semibold text-gray-50">{name}</p>
