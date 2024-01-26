@@ -1,19 +1,43 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SimplePokemon } from '@/pokemons';
 
-interface  pokemosState {
-    [key: string] : SimplePokemon
+
+// {
+//   favorites: {
+
+//     '1': {id: '1', name: 'bulbasaur'},
+//     '1': {id: '1', name: 'bulbasaur'},
+
+//   }
+// }
+
+
+interface pokemosState {
+  favorites: { [key: string]: SimplePokemon}
 
 }
 
-const getInitialState = ( ): pokemosState => {
-const favorites = JSON.parse( localStorage.getItem('favorite-pokemons') ??  '{}')
-  return favorites;
+// const getInitialState = (): pokemosState => {
 
-}
+//   // ? Posible solucion
+//   // * if ( typeof localStorage === 'undefined') return{};
+//   // TODO: Esto puede causar otro problema en dev x que cuando  se ejecuta del lado del cliente tiene una version y cuando se ejecuta del lado de dserver otra
+//   // ! Esta condicion cuando se ejecuta del lasdo del servidor 
 
-const initialState: pokemosState =  {
-  ...getInitialState(),
+//   const favorites = JSON.parse(localStorage.getItem('favorite-pokemons') ?? '{}')
+//   return favorites;
+
+// }
+
+const initialState: pokemosState = {
+
+  // ! ESTADO INCIAL 
+  favorites: {},
+
+
+
+
+  // ...getInitialState(),
 
 
 
@@ -25,26 +49,32 @@ const pokemonsSlice = createSlice({
   initialState,
   reducers: {
 
-toggleFavorite(state, action: PayloadAction<SimplePokemon>){
 
-const pokemon = action.payload;
+    setFavoritesPokemons (state, action: PayloadAction<{[key: string]: SimplePokemon}>){
+state.favorites = action.payload;
 
-const {id} = pokemon;
+    },
 
-if (!!state[id]){
+    toggleFavorite(state, action: PayloadAction<SimplePokemon>) {
 
-  delete state[id];
-  // return;
-} else{
-  state[id] =pokemon;
-}
+      const pokemon = action.payload;
 
-localStorage.setItem('favorite-pokemons', JSON.stringify(state));
-}
+      const { id } = pokemon;
+
+      if (!!state.favorites[id]) {
+
+        delete state.favorites[id];
+        // return;
+      } else {
+        state.favorites[id] = pokemon;
+      }
+
+      localStorage.setItem('favorite-pokemons', JSON.stringify(state.favorites));
+    }
 
   }
 });
 
-export const {toggleFavorite } = pokemonsSlice.actions
+export const { toggleFavorite, setFavoritesPokemons } = pokemonsSlice.actions
 
 export default pokemonsSlice.reducer

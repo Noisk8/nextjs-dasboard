@@ -11,14 +11,28 @@ export const store = configureStore({
     pokemons:  pokemonsReducer,
   },
 
-  middleware: ( getDefaultMiddleware ) =>  
-  getDefaultMiddleware ({
+
+
+
+ // ! ESTO DEBERÍA ESTAR CONCATENADO  :(
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware({
+  //     thunk: {
+  //       extraArgument: ''
+  //     },
+  //     serializableCheck: false,
+  //   }).concat(localStorageMiddleware),
+  // })
+  
+
+  // middleware: ( getDefaultMiddleware ) =>  
+  // getDefaultMiddleware ({
     
-    thunk: {
-      extraArgument:''
-    },
-    serializableCheck: false,
-  }),
+  //   thunk: {
+  //     extraArgument:''
+  //   },
+  //   serializableCheck: false,
+  // }),
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

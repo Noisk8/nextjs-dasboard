@@ -21,7 +21,7 @@ export const PokemonCrad = ({pokemon}:Props) => {
 
     const { id, name} = pokemon;
 
-const isFavorite = useAppSelector (state => !!state.pokemons[id]);
+const isFavorite = useAppSelector (state => !!state.pokemons.favorites[id]);
 
 const dispatch = useAppDispatch ();
     
